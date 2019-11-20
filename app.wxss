@@ -1,0 +1,4 @@
+@import './styles/fonts/iconfonts.wxss';
+page {
+  --themeColor: #eb4450; /* 主题色 */
+}
