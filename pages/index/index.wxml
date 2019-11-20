@@ -1,1 +1,3 @@
-<text>color</text>
+<view class="search_input">
+  <SearchInput />
+</view>
