@@ -1,8 +1,22 @@
-.search_input swiper {
+.page_container .index_swiper swiper {
   width: 750rpx;
   height: 350rpx;
 }
-.search_input swiper image {
+.page_container .index_swiper swiper navigator {
+  height: 100%;
+}
+.page_container .index_swiper swiper navigator image {
+  width: 100%;
+  height: 100% !important;
+}
+.page_container .index_nav {
+  display: flex;
+}
+.page_container .index_nav navigator {
+  flex: 1;
+  padding: 20rpx;
+}
+.page_container .index_nav navigator image {
   width: 100%;
 }
 

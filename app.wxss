@@ -63,4 +63,8 @@ page {
   font-size: 28rpx;
 }
 
+.navigator-hover {
+  color: transparent;
+}
+
 /*# sourceMappingURL=app.wxss.map */
