@@ -1,17 +1,24 @@
+import { request } from '../../request/index.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    swiperData: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    request({
+      url: 'https://api.zbztb.cn/api/public/v1/home/swiperdata'
+    }).then(res => {
+      this.setData({
+        swiperData: res.data.message
+      })
+    })
   },
 
   /**

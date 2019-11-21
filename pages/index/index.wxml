@@ -1,3 +1,16 @@
 <view class="search_input">
+  <!-- 搜索框开始 -->
   <SearchInput />
+  <!-- 搜索框结束 -->
+  <!-- 轮播图开始 -->
+  <swiper indicator-dots autoplay circular>
+    <block wx:for="{{swiperData}}" wx:key="goods_id">
+      <swiper-item>
+        <navigator url="{{item.navigator_url}}" open-type="navigate">
+          <image src="{{item.image_src}}" mode="widthFix" />
+        </navigator>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 轮播图结束 -->
 </view>

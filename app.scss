@@ -1,4 +1,4 @@
-@import './styles/fonts/iconfonts.wxss';
+@import './styles/fonts/iconfonts.scss';
 
 page, view, text, swiper, swiper-item, image, navigator {
   margin: 0;
@@ -8,5 +8,6 @@ page, view, text, swiper, swiper-item, image, navigator {
 
 page {
   --themeColor: #eb4450; /* 主题色 */
+  --color999: #999;
   font-size: 28rpx;
 }

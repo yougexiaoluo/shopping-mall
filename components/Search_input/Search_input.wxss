@@ -1,1 +1,21 @@
-/* components/Search_input/Search_input.wxss */
+.search_input_wrapper {
+  background: var(--themeColor);
+  padding: 10px;
+}
+
+.navigator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color999);
+  border-radius: 5px;
+  background: #fff;
+  font-size: 14px;
+  letter-spacing: 5px;
+  padding: 8px 0;
+}
+
+/* 
+.navigator-hover {
+  color: transparent;
+} */
