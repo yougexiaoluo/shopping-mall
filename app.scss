@@ -19,7 +19,7 @@ page {
 }
 
 .navigator-hover {
-  color: transparent;
+  background: transparent;
 }
 image {
   width: 100%;
@@ -34,4 +34,11 @@ image {
   line-height: 0;
   visibility: hidden;
   overflow: hidden;
+}
+
+// 水平、垂直居中
+.level_vertical_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,3 +1,53 @@
 <view class="category_wrapper">
+  <!-- 搜索框 开始 -->
   <SearchInput />
+  <!-- 搜索框 结束 -->
+  <!-- 分类列表 开始 -->
+  <view class="cates_container">
+    <!-- 左侧菜单 -->
+    <view class="cates_left_menu">
+      <scroll-view scroll-y>
+        <view class="menu_item level_vertical_center {{index === currentIndex ? 'active' : ''}}"
+          wx:for="{{leftMenuList}}"
+          wx:key="*this"
+          bind:tap="changeMenuHandle"
+          data-index="{{index}}"
+        >{{item}}</view>
+      </scroll-view>
+    </view>
+    <!-- 右侧内容 -->
+    <view class="cates_right_menu">
+      <scroll-view scroll-y>
+        <view class="content_group"
+          wx:for="{{rightContentList}}"
+          wx:for-item="item1"
+          wx:for-index="index1"
+          wx:key="index1"
+          wx:if="{{item1.children.length}}"
+        >
+          <!-- 内容标题 -->
+          <view class="content_title level_vertical_center">
+            <text class="line left_deviding_line">/</text>
+            <text class="content">{{item1.cat_name}}</text>
+            <text class="line right_deviding_line">/</text>
+          </view>
+          <!-- 内容选项 -->
+          <view class="content_list">
+            <view class="content_item"
+              wx:for="{{item1.children}}"
+              wx:for-item="item2"
+              wx:for-index="index2"
+              wx:key="cat_id"
+            >
+              <navigator class="navigator-hover">
+                <image src="{{item2.cat_icon}}" mode="widthFix"/>
+                <view class="goods_name">{{item2.cat_name}}</view>
+              </navigator>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 分类列表 结束 -->
 </view>

@@ -1,0 +1,63 @@
+.category_wrapper {
+  .cates_container {
+    display: flex;
+    height: calc(100vh - 39px);
+    // 左侧菜单
+    .cates_left_menu {
+      flex: 2;
+      scroll-view {
+        height: 100%;
+        .menu_item {
+          font-size: 12px;
+          color: #666;
+          padding: 15rpx 0;
+          // 激活类
+          &.active {
+            color: var(--themeColor);
+            border-left: 5rpx solid currentColor;
+          }
+        }
+      }
+    }
+    // 右侧菜单
+    .cates_right_menu {
+      flex: 5;
+      scroll-view {
+        height: 100%;
+        .content_group {
+          padding-bottom: 30rpx;
+          .content_title {
+            color: #666;
+            font-size: 12px;
+            padding: 15rpx 0;
+            .line {
+              padding: 0 10rpx;
+            }
+          }
+          .content_list {
+            display: flex;
+            flex-wrap: wrap;
+            .content_item {
+              width: 33.33%;
+              navigator {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15rpx;
+                image {
+                  width: 60%;
+                }
+                .goods_name {
+                  font-size: 10px;
+                  color: #666;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

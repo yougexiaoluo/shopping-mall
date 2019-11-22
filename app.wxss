@@ -70,7 +70,7 @@ page {
 }
 
 .navigator-hover {
-  color: transparent;
+  background: transparent;
 }
 
 image {
@@ -85,6 +85,12 @@ image {
   line-height: 0;
   visibility: hidden;
   overflow: hidden;
+}
+
+.level_vertical_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=app.wxss.map */
