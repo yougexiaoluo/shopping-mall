@@ -1,4 +1,5 @@
 .page_container {
+  // 轮播图
   .index_swiper {
     swiper {
       width: 750rpx;
@@ -12,6 +13,7 @@
       }
     }
   }
+  // 导航
   .index_nav {
     display: flex;
     navigator {
@@ -22,4 +24,5 @@
       }
     }
   }
+  // 楼层
 }

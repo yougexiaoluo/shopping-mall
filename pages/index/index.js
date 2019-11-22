@@ -7,8 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swiperData: [],
-    cateList: []
+    swiperData: [], // 轮播图
+    cateList: [], // 导航
+    floorList: [], // 楼层
   },
 
   /**
@@ -17,6 +18,7 @@ Page({
   onLoad: function (options) {
     this.getSwiperData()
     this.getCateList()
+    this.getFloorList()
   },
 
   // 获取轮播图数据
@@ -37,6 +39,18 @@ Page({
     }).then(res => {
       this.setData({
         cateList: res.data.message
+      })
+    })
+  },
+
+  // 获取楼层数据
+  getFloorList: function () {
+    request({
+      url: 'https://api.zbztb.cn/api/public/v1/home/floordata'
+    }).then(res => {
+      console.log(res)
+      this.setData({
+        floorList: res.data.message
       })
     })
   },
