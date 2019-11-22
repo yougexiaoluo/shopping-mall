@@ -6,7 +6,10 @@
   <view class="cates_container">
     <!-- 左侧菜单 -->
     <view class="cates_left_menu">
-      <scroll-view scroll-y>
+      <scroll-view scroll-y
+        scroll-top="{{leftScrollTop}}"
+        scroll-with-animation
+      >
         <view class="menu_item level_vertical_center {{index === currentIndex ? 'active' : ''}}"
           wx:for="{{leftMenuList}}"
           wx:key="*this"
@@ -17,7 +20,10 @@
     </view>
     <!-- 右侧内容 -->
     <view class="cates_right_menu">
-      <scroll-view scroll-y>
+      <scroll-view scroll-y 
+        scroll-top="{{rightScrollTop}}"
+        scroll-with-animation
+      >
         <view class="content_group"
           wx:for="{{rightContentList}}"
           wx:for-item="item1"

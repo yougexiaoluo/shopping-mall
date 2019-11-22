@@ -6,8 +6,10 @@ Page({
    */
   data: {
     leftMenuList: [], // 左侧菜单数据
-    rightContentList: [], // 右侧菜单数据
+    rightContentList: [], // 右侧内容数据
     currentIndex: 0, // 当前页码下标
+    rightScrollTop: 0, // 右侧内容初始滚动条距离顶部的距离
+    leftScrollTop: 0// 左侧菜单初始滚动条距离顶部的距离
   },
   // 接收返回的数据
   cates: [],
@@ -15,7 +17,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getCates()
+    let cates = wx.getStorageSync('cates')
+    if (!cates) {
+      this.getCates()
+    } else {
+      if (Date.now() - cates._time > 1000 * 10) {
+        this.cates = cates.data
+        // 构造左侧菜单数据
+        let leftMenuList = this.cates.map(item => item.cat_name)
+        // 构造右侧内容数据
+        let rightContentList = this.cates[0].children
+        this.setData({
+          leftMenuList,
+          rightContentList
+        })
+      }
+    }
   },
 
   // 获取分类数据
@@ -24,7 +41,11 @@ Page({
       url: 'https://api.zbztb.cn/api/public/v1/categories'
     }).then(res => {
       this.cates = res.data.message
+      // 将请求的数据存放到本地缓存中
+      wx.setStorageSync('cates', {_time: Date.now(), data: this.cates})
+      // 构造左侧菜单数据
       let leftMenuList = this.cates.map(item => item.cat_name)
+      // 构造右侧内容数据
       let rightContentList = this.cates[0].children
       this.setData({
         leftMenuList,
@@ -35,9 +56,18 @@ Page({
 
   // 切换菜单内容
   changeMenuHandle(e) {
-    let currentIndex = e.currentTarget.dataset.index
-    let rightContentList = this.cates[currentIndex].children
-    this.setData({ currentIndex, rightContentList })
+    let { index } = e.currentTarget.dataset
+    let rightContentList = this.cates[index].children
+    let leftScrollTop = 0
+    if (index >= 8) {
+      leftScrollTop = index * 30
+    }
+    this.setData({
+      currentIndex: index,
+      rightContentList,
+      leftScrollTop,
+      rightScrollTop: 0
+    })
   },
 
 
