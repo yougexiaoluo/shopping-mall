@@ -1,9 +1,11 @@
 export const request = (params) => {
+  const BASEURL = 'https://api.zbztb.cn/api/public/v1'
   return new Promise((resolve, reject) => {
     wx.request({
       ...params,
+      url: BASEURL + params.url,
       success: function (result) {
-        resolve(result)
+        resolve(result.data.message)
       },
       fail: function (err) {
         reject(err)

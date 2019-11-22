@@ -24,10 +24,10 @@ Page({
   // 获取轮播图数据
   getSwiperData: function () {
     request({
-      url: 'https://api.zbztb.cn/api/public/v1/home/swiperdata'
+      url: '/home/swiperdata'
     }).then(res => {
       this.setData({
-        swiperData: res.data.message
+        swiperData: res
       })
     })
   },
@@ -35,10 +35,10 @@ Page({
   // 获取导航数据
   getNavList: function () {
     request({
-      url: 'https://api.zbztb.cn/api/public/v1/home/catitems'
+      url: '/home/catitems'
     }).then(res => {
       this.setData({
-        navList: res.data.message
+        navList: res
       })
     })
   },
@@ -46,10 +46,10 @@ Page({
   // 获取楼层数据
   getFloorList: function () {
     request({
-      url: 'https://api.zbztb.cn/api/public/v1/home/floordata'
+      url: '/home/floordata'
     }).then(res => {
       this.setData({
-        floorList: res.data.message
+        floorList: res
       })
     })
   },

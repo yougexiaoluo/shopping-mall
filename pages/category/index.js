@@ -1,4 +1,5 @@
 import { request } from '../../request/index.js'
+import regeneratorRuntime from '../../lib/runtime/runtime'
 Page({
 
   /**
@@ -9,7 +10,7 @@ Page({
     rightContentList: [], // 右侧内容数据
     currentIndex: 0, // 当前页码下标
     rightScrollTop: 0, // 右侧内容初始滚动条距离顶部的距离
-    leftScrollTop: 0// 左侧菜单初始滚动条距离顶部的距离
+    leftScrollTop: 0  // 左侧菜单初始滚动条距离顶部的距离
   },
   // 接收返回的数据
   cates: [],
@@ -36,21 +37,18 @@ Page({
   },
 
   // 获取分类数据
-  getCates() {
-    request({
-      url: 'https://api.zbztb.cn/api/public/v1/categories'
-    }).then(res => {
-      this.cates = res.data.message
-      // 将请求的数据存放到本地缓存中
-      wx.setStorageSync('cates', {_time: Date.now(), data: this.cates})
-      // 构造左侧菜单数据
-      let leftMenuList = this.cates.map(item => item.cat_name)
-      // 构造右侧内容数据
-      let rightContentList = this.cates[0].children
-      this.setData({
-        leftMenuList,
-        rightContentList
-      })
+  async getCates() {
+    let res = await request({ url: '/categories' })
+    this.cates = res
+    // 将请求的数据存放到本地缓存中
+    wx.setStorageSync('cates', { _time: Date.now(), data: this.cates })
+    // 构造左侧菜单数据
+    let leftMenuList = this.cates.map(item => item.cat_name)
+    // 构造右侧内容数据
+    let rightContentList = this.cates[0].children
+    this.setData({
+      leftMenuList,
+      rightContentList
     })
   },
 
