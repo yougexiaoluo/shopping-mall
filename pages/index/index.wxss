@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .page_container .index_swiper swiper {
   width: 750rpx;
   height: 350rpx;
@@ -18,6 +19,42 @@
 }
 .page_container .index_nav navigator image {
   width: 100%;
+}
+.page_container .index_floor {
+  padding: 0 5px 50rpx;
+}
+.page_container .index_floor .floor_group {
+  margin-bottom: 15rpx;
+}
+.page_container .index_floor .floor_group .floor_title {
+  padding: 10rpx 0;
+}
+.page_container .index_floor .floor_group .floor_title image {
+  width: 100%;
+}
+.page_container .index_floor .floor_group .floor_list .list_item {
+  float: left;
+  width: 33.33%;
+  height: 55.4542241379vw;
+  /* 
+    已知原始图片W: 232, H: 386, 以及每个容器是屏幕的1/3宽，求出容器高度:
+      232 / 386 = 33.33vw / height      👇
+      height = 33.33vw * 386 / 232 / 2  👈
+  */
+}
+.page_container .index_floor .floor_group .floor_list .list_item:first-child image {
+  height: 100% !important;
+}
+.page_container .index_floor .floor_group .floor_list .list_item:nth-last-child(-n+4) {
+  height: 27.727112069vw;
+  border-left: 10rpx solid #fff;
+}
+.page_container .index_floor .floor_group .floor_list .list_item:nth-child(2), .page_container .index_floor .floor_group .floor_list .list_item:nth-child(3) {
+  border-bottom: 10rpx solid #fff;
+}
+.page_container .index_floor .floor_group .floor_list .list_item image {
+  width: 100%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=index.wxss.map */

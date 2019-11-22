@@ -1,8 +1,14 @@
-@import './styles/fonts/iconfonts.scss';
+@import "./styles/fonts/iconfonts.scss";
 
-page, view, text, swiper, swiper-item, image, navigator {
-  margin: 0;
+page,
+view,
+text,
+swiper,
+swiper-item,
+image,
+navigator {
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -14,4 +20,18 @@ page {
 
 .navigator-hover {
   color: transparent;
+}
+image {
+  width: 100%;
+}
+
+// 清除浮动
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+  overflow: hidden;
 }

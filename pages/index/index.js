@@ -8,7 +8,7 @@ Page({
    */
   data: {
     swiperData: [], // 轮播图
-    cateList: [], // 导航
+    navList: [], // 导航
     floorList: [], // 楼层
   },
 
@@ -17,7 +17,7 @@ Page({
    */
   onLoad: function (options) {
     this.getSwiperData()
-    this.getCateList()
+    this.getNavList()
     this.getFloorList()
   },
 
@@ -33,12 +33,12 @@ Page({
   },
 
   // 获取导航数据
-  getCateList: function () {
+  getNavList: function () {
     request({
       url: 'https://api.zbztb.cn/api/public/v1/home/catitems'
     }).then(res => {
       this.setData({
-        cateList: res.data.message
+        navList: res.data.message
       })
     })
   },
@@ -48,7 +48,6 @@ Page({
     request({
       url: 'https://api.zbztb.cn/api/public/v1/home/floordata'
     }).then(res => {
-      console.log(res)
       this.setData({
         floorList: res.data.message
       })

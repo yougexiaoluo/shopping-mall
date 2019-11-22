@@ -17,7 +17,7 @@
   <!-- 轮播图 结束 -->
   <!-- 导航 开始 -->
   <view class="index_nav">
-    <block wx:for="{{cateList}}" wx:key="name">
+    <block wx:for="{{navList}}" wx:key="name">
       <navigator>
         <image src="{{item.image_src}}" mode="widthFix" />
       </navigator>
@@ -26,18 +26,30 @@
   <!-- 导航 结束 -->
   <!-- 楼层 开始 -->
   <view class="index_floor">
-    <view class="floor_group" wx:for="{{floorList}}" wx:key="name" wx:for-item="item1" wx:for-index="index1">
+    <view class="floor_group"
+      wx:for="{{floorList}}"
+      wx:key="name"
+      wx:for-item="item1"
+      wx:for-index="index1"
+    >
       <!-- 标题 -->
       <view class="floor_title">
-        <image src="{{item1.floor_title.image_src}}" mode="widthFix" />
+        <image src="{{item1.floor_title.image_src}}"
+               mode="widthFix" />
       </view>
       <!-- 内容 -->
-      <view class="floor_list" wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="name">
-        <view class="list-item">
-          <navigator url="{{item2.navigator_url}}" open-type="item2.open_type">
-            <image src="{{item2.image_src}}" mode="widthFix" />
-          </navigator>
-        </view>
+      <view class="floor_list clearfix">
+        <navigator class="list_item"
+          wx:for="{{item1.product_list}}"
+          wx:for-item="item2"
+          wx:for-index="index2"
+          wx:key="name"
+          url="{{item2.navigator_url}}"
+          open-type="{{item2.open_type}}"
+        >
+          <image src="{{item2.image_src}}"
+            mode="{{index2 == 0 ? 'widthFix' : 'scaleToFill'}}" />
+        </navigator>
       </view>
     </view>
   </view>
