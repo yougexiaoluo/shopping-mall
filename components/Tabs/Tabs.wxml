@@ -1,0 +1,17 @@
+<view class="tabs_wrapper">
+  <!-- 顶部导航栏 开始 -->
+  <view class="tabs_title">
+    <view class="title_item {{item.isActive && 'active'}}"
+      wx:for="{{tabs}}"
+      wx:key="id"
+      bindtap="changeTabsHandle"
+      data-idx="{{item.id}}"
+    >
+      {{item.value}}
+    </view>
+  </view>
+  <!-- 内容部分 开始 -->
+  <view class="tabs_content">
+    <slot />
+  </view>
+</view>

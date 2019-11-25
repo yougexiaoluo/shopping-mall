@@ -1,2 +1,8 @@
-<!--pages/goods_list/index.wxml-->
-<text>pages/goods_list/index.wxml</text>
+<view class="goods_list_wrapper">
+  <SearchInput />
+  <Tabs tabs="{{tabs}}" bindtabsItemTap="tabsItemTapHandle">
+    <view wx:if="{{tabs[0].isActive}}">1</view>
+    <view wx:elif="{{tabs[1].isActive}}">2</view>
+    <view wx:elif="{{tabs[2].isActive}}">3</view>
+  </Tabs>
+</view>  

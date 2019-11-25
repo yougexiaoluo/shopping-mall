@@ -45,7 +45,7 @@
               wx:for-index="index2"
               wx:key="cat_id"
             >
-              <navigator class="navigator-hover">
+              <navigator class="navigator-hover" url="/pages/goods_list/index?cid={{item2.cat_id}}">
                 <image src="{{item2.cat_icon}}" mode="widthFix"/>
                 <view class="goods_name">{{item2.cat_name}}</view>
               </navigator>
