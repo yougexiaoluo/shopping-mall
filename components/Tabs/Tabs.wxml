@@ -10,7 +10,7 @@
       {{item.value}}
     </view>
   </view>
-  <!-- 内容部分 开始 -->
+  <!-- 内容区域 开始 -->
   <view class="tabs_content">
     <slot />
   </view>

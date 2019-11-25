@@ -21,6 +21,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    // 想父组件传递事件
     changeTabsHandle(e) {
       let { idx } = e.currentTarget.dataset
       this.triggerEvent('tabsItemTap', { idx })
