@@ -55,6 +55,7 @@ Page({
     })
     this.totalPages = Math.ceil(res.total / this.queryParams.pagesize) // 计算总页数
     this.setData({ goodsList: [...this.data.goodsList, ...res.goods] })
+    wx.stopPullDownRefresh()
   },
 
   // 监听子组件的事件
@@ -78,6 +79,8 @@ Page({
    *        II. 重新发送请求
    *        III. 请求成功，重新对数据进行拼接
    *  2. 下拉刷新页面
+   *      a. 重置当前页码为初始页码
+   *      b. 重新请求
    */
 
   /**
@@ -132,7 +135,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    if (this.queryParams.pagenum !== 1) {
+      this.setData({goodsList: []}) // 重置数组
+      this.queryParams.pagenum = 1  // 重置
+      this.getGoodsList()
+    }
   },
 
   /**
