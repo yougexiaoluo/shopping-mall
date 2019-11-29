@@ -66,15 +66,15 @@ page {
   --themeColor: #eb4450;
   /* 主题色 */
   --color999: #999;
+  --color666: #666;
+  --color333: #333;
+  --colorccc: #ccc;
   font-size: 28rpx;
-}
-
-.navigator-hover {
-  background: transparent;
-}
-
-image {
-  width: 100%;
+  --fontS20: 20px;
+  --fontS18: 18px;
+  --fontS12: 12px;
+  --fontS10: 10px;
+  height: 100%;
 }
 
 .clearfix::after {
@@ -91,6 +91,24 @@ image {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.title_font {
+  font-size: var(--fontS18);
+  color: var(--color333);
+}
+
+.sub_title_font {
+  font-size: var(--fontS10);
+  color: var(--color666);
+}
+
+.navigator-hover {
+  background: transparent;
+}
+
+image {
+  width: 100%;
 }
 
 /*# sourceMappingURL=app.wxss.map */

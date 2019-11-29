@@ -8,7 +8,9 @@
       >
         <!-- 左侧商品图片 -->
         <view class="goods_img_wrapper">
-          <image mode="widthFix" src="{{item.goods_small_logo?item.goods_small_logo:'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}" />
+          <image mode="widthFix" 
+                 src="{{ item.goods_small_logo ? item.goods_small_logo : 'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}" 
+          />
         </view>
         <!-- 右侧商品描述 -->
         <view class="goods_info_wrapper">
@@ -20,4 +22,7 @@
     <view wx:elif="{{tabs[1].isActive}}">2</view>
     <view wx:elif="{{tabs[2].isActive}}">3</view>
   </Tabs>
+  <view class="no_data level_vertical_center" wx:if="{{!goodsList.length}}">
+    <image mode="widthFix" src="../../images/NO.png" />
+  </view>
 </view>  

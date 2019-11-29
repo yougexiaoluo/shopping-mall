@@ -1,3 +1,6 @@
+.goods_list_wrapper {
+  height: 100%;
+}
 .goods_list_wrapper .comprehensive_item {
   display: flex;
   padding: 20rpx 20rpx;
@@ -29,6 +32,14 @@
 .goods_list_wrapper .comprehensive_item .goods_info_wrapper .goods_price {
   color: var(--themeColor);
   font-weight: 600;
+}
+.goods_list_wrapper .no_data {
+  width: 100%;
+  height: calc(100% - 73px);
+  background: #f5f5f3;
+}
+.goods_list_wrapper .no_data image {
+  width: 70%;
 }
 
 /*# sourceMappingURL=index.wxss.map */

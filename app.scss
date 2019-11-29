@@ -13,16 +13,21 @@ navigator {
 }
 
 page {
+  // 颜色
   --themeColor: #eb4450; /* 主题色 */
   --color999: #999;
-  font-size: 28rpx;
-}
+  --color666: #666;
+  --color333: #333;
+  --colorccc: #ccc;
 
-.navigator-hover {
-  background: transparent;
-}
-image {
-  width: 100%;
+  // 字体
+  font-size: 28rpx;
+  --fontS20: 20px;
+  --fontS18: 18px;
+  --fontS12: 12px;
+  --fontS10: 10px;
+  // page的初始样式
+  height: 100%;
 }
 
 // 清除浮动
@@ -41,4 +46,25 @@ image {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+// 一级标题 
+.title_font {
+  font-size: var(--fontS18);
+  color: var(--color333);
+}
+
+// 子标题
+.sub_title_font {
+  font-size: var(--fontS10);
+  color: var(--color666);
+}
+
+// 点击跳转时的背景色
+.navigator-hover {
+  background: transparent;
+}
+
+image {
+  width: 100%;
 }
