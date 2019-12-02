@@ -42,5 +42,25 @@
     </view>
   </view>
   <!-- bottom nav Bar -->
-  <view class="bottom_nav_bar"></view>
+  <view class="bottom_nav_bar">
+    <!-- 客服 -->
+    <view class="customer_service">
+      <text class="iconfont icon-kefu"></text>
+      <text>联系客服</text>
+    </view>
+    <!-- 分享 -->
+    <view class="share">
+      <text class="iconfont icon-yixianshi-"></text>
+      <text>分享</text>
+    </view>
+    <!-- 购物车 -->
+    <view class="cart">
+      <text class="iconfont icon-cart"></text>
+      <text>购物车</text>
+    </view>
+    <!-- 加入购物车 -->
+    <view class="add_cart">加入购物车</view>
+    <!-- 立即购买 -->
+    <view class="immediately_purchase">立即购买</view>
+  </view>
 </view>
