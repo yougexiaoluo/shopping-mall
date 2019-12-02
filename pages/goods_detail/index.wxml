@@ -1,2 +1,46 @@
-<!--pages/goods_detail/index.wxml-->
-<text>pages/goods_detail/index.wxml</text>
+<view class="goods_detail_wrapper">
+  <view class="preview">
+    <!-- 照片 pictures 开始 -->
+    <view class="swiper_wrapper">
+      <swiper indicator-dots 
+              circular
+              indicator-color="rgba(0, 0, 0, .3)"
+              indicator-active-color="#eb4450"        
+      >
+        <block wx:for="{{pics}}" 
+               wx:key="pics_id"
+        >
+        <swiper-item>
+          <image mode="widthFix" src="{{item.pics_mid_url}}" />
+        </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!-- 商品描述 开始 -->
+    <view class="goods_info">
+      <!-- 商品价格 -->
+      <view class="price">￥{{goodsPrice}}</view>
+      <view class="goods_other_attr">
+        <!-- 商品名称 -->
+        <view class="goods_name ellipsis">{{goodsName}}</view>
+        <!-- 收藏 -->
+        <view class="collection">
+          <!-- icon -->
+          <text class="iconfont icon-shoucang"></text>
+          <view>收藏</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 商品描述 -->
+  <view class="desc">
+    <!-- 标题 -->
+    <view class="detail_title">图文详情</view>
+    <!-- 内容 -->
+    <view class="content">
+      <rich-text nodes="{{goodsIntroduce}}" />
+    </view>
+  </view>
+  <!-- bottom nav Bar -->
+  <view class="bottom_nav_bar"></view>
+</view>

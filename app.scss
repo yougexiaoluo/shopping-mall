@@ -14,7 +14,8 @@ navigator {
 
 page {
   // 颜色
-  --themeColor: #eb4450; /* 主题色 */
+  --themeColor: #eb4450; // 主题色
+  --BG: #ededec; // 背景色
   --color999: #999;
   --color666: #666;
   --color333: #333;
@@ -28,6 +29,7 @@ page {
   --fontS10: 10px;
   // page的初始样式
   height: 100%;
+  background-color: var(--BG);
 }
 
 // 清除浮动
@@ -48,7 +50,7 @@ page {
   align-items: center;
 }
 
-// 一级标题 
+// 一级标题
 .title_font {
   font-size: var(--fontS18);
   color: var(--color333);
@@ -67,4 +69,12 @@ page {
 
 image {
   width: 100%;
+}
+
+// 文字超出范围以省略号显示
+.ellipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
 }

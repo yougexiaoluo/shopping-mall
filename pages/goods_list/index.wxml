@@ -2,9 +2,10 @@
   <SearchInput />
   <Tabs tabs="{{tabs}}" bindtabsItemTap="tabsItemTapHandle">
     <view wx:if="{{tabs[0].isActive}}">
-      <view class="comprehensive_item"
+      <navigator class="comprehensive_item"
         wx:for="{{goodsList}}"
         wx:key="goods_id"
+        url="/pages/goods_detail/index?goodsId={{item.goods_id}}"
       >
         <!-- 左侧商品图片 -->
         <view class="goods_img_wrapper">
@@ -17,12 +18,14 @@
           <view class="goods_name">{{item.goods_name}}</view>
           <view class="goods_price">￥{{item.goods_price}}</view>
         </view>
-      </view>
+      </navigator>
     </view>
     <view wx:elif="{{tabs[1].isActive}}">2</view>
     <view wx:elif="{{tabs[2].isActive}}">3</view>
   </Tabs>
-  <view class="no_data level_vertical_center" wx:if="{{!goodsList.length}}">
+
+  <!-- 没有数据时显示 -->
+  <!-- <view class="no_data level_vertical_center" wx:if="{{!goodsList.length}}">
     <image mode="widthFix" src="../../images/NO.png" />
-  </view>
+  </view> -->
 </view>  

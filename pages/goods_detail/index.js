@@ -1,3 +1,5 @@
+import { request } from "../../request/index.js"
+
 // pages/goods_detail/index.js
 Page({
 
@@ -5,14 +7,43 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    goodsId: '',
+    pics: [], // 轮播图数据
+    goodsName: '', // 商品名
+    goodsIntroduce: '', // 商品描述
+    goodsPrice: '', // 商品价格
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let { goodsId } = options
+    this.setData({ goodsId })
+    this.getGoodsDetail()
+  },
 
+  // 获取商品详情
+  async getGoodsDetail() {
+    let { goodsId } = this.data
+    let res = await request({
+      url: '/goods/detail',
+      data: { goods_id: goodsId }
+    })
+    let {
+      pics,
+      goods_name,
+      goods_introduce,
+      goods_price
+    } = res
+    // 设置data
+    this.setData({
+      pics,
+      goodsName: goods_name,
+      goodsIntroduce: goods_introduce,
+      goodsPrice: goods_price
+    })
+    console.log(res, this.data)
   },
 
   /**

@@ -64,7 +64,7 @@ navigator {
 
 page {
   --themeColor: #eb4450;
-  /* 主题色 */
+  --BG: #ededec;
   --color999: #999;
   --color666: #666;
   --color333: #333;
@@ -75,6 +75,7 @@ page {
   --fontS12: 12px;
   --fontS10: 10px;
   height: 100%;
+  background-color: var(--BG);
 }
 
 .clearfix::after {
@@ -109,6 +110,13 @@ page {
 
 image {
   width: 100%;
+}
+
+.ellipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
 }
 
 /*# sourceMappingURL=app.wxss.map */
