@@ -75,7 +75,6 @@ page {
   --fontS12: 12px;
   --fontS10: 10px;
   height: 100%;
-  background-color: var(--BG);
 }
 
 .clearfix::after {

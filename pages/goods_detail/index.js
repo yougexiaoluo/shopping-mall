@@ -40,7 +40,8 @@ Page({
     this.setData({
       pics,
       goodsName: goods_name,
-      goodsIntroduce: goods_introduce,
+      // 这种做法不正确，只是暂时的解决方案，最终还是需要跟后台开发人员进行协商 --> 改为其他格式的图片
+      goodsIntroduce: goods_introduce.replace(/\.webp/g, '.jpg'),
       goodsPrice: goods_price
     })
     console.log(res, this.data)
