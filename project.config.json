@@ -1,40 +1,21 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
-		"enhance": true,
 		"postcss": true,
-		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
-		"coverView": true,
-		"nodeModules": false,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": false,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		}
+		"enhance": true,
+		"checkSiteMap": false
 	},
-	"compileType": "miniprogram",
-	"libVersion": "2.8.3",
 	"appid": "wxbb1f3899844633e6",
-	"projectname": "shopping-mall",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"isGameTourist": false,
+	"projectname": "shopping-mall-01",
+	"libVersion": "2.8.3",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -49,7 +30,6 @@
 			"list": []
 		},
 		"game": {
-			"currentL": -1,
 			"list": []
 		},
 		"gamePlugin": {
@@ -57,27 +37,20 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
-					"name": "分类-category",
-					"pathName": "pages/category/index",
+					"id": 0,
+					"name": "首页",
+					"pathName": "pages/index/index",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "商品列表",
-					"pathName": "pages/goods_list/index",
-					"query": "cid=5",
-					"scene": null
-				},
-				{
-					"id": 2,
-					"name": "pages/goods_detail/index",
+					"name": "商品详情",
 					"pathName": "pages/goods_detail/index",
-					"query": "goodsId= 43984",
+					"query": "goodsId= 9832",
 					"scene": null
 				}
 			]

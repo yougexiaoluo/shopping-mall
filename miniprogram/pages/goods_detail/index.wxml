@@ -47,11 +47,13 @@
     <view class="customer_service">
       <text class="iconfont icon-kefu"></text>
       <text>联系客服</text>
+      <button open-type="contact"></button>
     </view>
     <!-- 分享 -->
     <view class="share">
       <text class="iconfont icon-yixianshi-"></text>
       <text>分享</text>
+      <button open-type="share"></button>
     </view>
     <!-- 购物车 -->
     <view class="cart">

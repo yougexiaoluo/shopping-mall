@@ -21,6 +21,20 @@ Page({
     let { goodsId } = options
     this.setData({ goodsId })
     this.getGoodsDetail()
+
+
+    // 调用云函数
+    // wx.cloud.callFunction({
+    //   name: 'product',
+    //   data: {
+    //     a: 1,
+    //     b: 2
+    //   }
+    // }).then(res => {
+    //   console.log(res)
+    // }).catch(err => {
+    //   console.log(err)
+    // })
   },
 
   // 获取商品详情
@@ -40,10 +54,11 @@ Page({
     this.setData({
       pics,
       goodsName: goods_name,
-      goodsIntroduce: goods_introduce,
+      // 这种做法不正确，只是暂时的解决方案，最终还是需要跟后台开发人员进行协商 --> 改为其他格式的图片
+      goodsIntroduce: goods_introduce.replace(/\.webp/g, '.jpg'),
       goodsPrice: goods_price
     })
-    console.log(res, this.data)
+    // console.log(res, this.data)
   },
 
   /**
