@@ -12,6 +12,7 @@ Page({
     goodsName: '', // 商品名
     goodsIntroduce: '', // 商品描述
     goodsPrice: '', // 商品价格
+    previewUrls: [], // 商品预览url
   },
 
   /**
@@ -21,8 +22,6 @@ Page({
     let { goodsId } = options
     this.setData({ goodsId })
     this.getGoodsDetail()
-
-
     // 调用云函数
     // wx.cloud.callFunction({
     //   name: 'product',
@@ -37,8 +36,25 @@ Page({
     // })
   },
 
+  // 商品全屏预览
+  previewImage (e) {
+    let { url } = e.currentTarget.dataset
+    let { previewUrls } = this.data
+    wx.previewImage({
+      current: url,
+      urls: previewUrls
+    })
+  },
+
+  // 处理商品全屏预览url
+  handlePreviewUrls () {
+    let { pics, previewUrls } = this.data
+    pics.map(item => previewUrls.push(item.pics_mid_url))
+    this.setData({ previewUrls })
+  },
+
   // 获取商品详情
-  async getGoodsDetail() {
+  async getGoodsDetail () {
     let { goodsId } = this.data
     let res = await request({
       url: '/goods/detail',
@@ -58,7 +74,7 @@ Page({
       goodsIntroduce: goods_introduce.replace(/\.webp/g, '.jpg'),
       goodsPrice: goods_price
     })
-    // console.log(res, this.data)
+    this.handlePreviewUrls()
   },
 
   /**
