@@ -2,27 +2,35 @@
   <view class="preview">
     <!-- 照片 pictures 开始 -->
     <view class="swiper_wrapper">
-      <swiper indicator-dots 
+      <swiper indicator-dots="{{goodsObj.pics.length && true}}"
               circular
               indicator-color="rgba(0, 0, 0, .3)"
               indicator-active-color="#eb4450"        
       >
-        <block wx:for="{{pics}}" 
+        <block wx:for="{{goodsObj.pics}}" 
                wx:key="pics_id"
+               wx:if="{{goodsObj.pics.length}}"
         >
         <swiper-item>
           <image mode="widthFix" src="{{item.pics_mid_url}}" bindtap="previewImage" data-url="{{item.pics_mid_url}}"/>
         </swiper-item>
         </block>
+        <!-- 不存在商品图片时显示 -->
+        <swiper-item wx:el>
+          <image mode="widthFix" src="https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg"/>
+        </swiper-item>
       </swiper>
     </view>
     <!-- 商品描述 开始 -->
     <view class="goods_info">
       <!-- 商品价格 -->
-      <view class="price">￥{{goodsPrice}}</view>
+      <view class="price">
+        <text>￥{{goodsObj.goodsPrice}}</text>
+        <text>剩余: {{goodsObj.goodsNumber}}</text>
+      </view>
       <view class="goods_other_attr">
         <!-- 商品名称 -->
-        <view class="goods_name ellipsis">{{goodsName}}</view>
+        <view class="goods_name ellipsis">{{goodsObj.goodsName}}</view>
         <!-- 收藏 -->
         <view class="collection">
           <!-- icon -->
@@ -38,7 +46,7 @@
     <view class="detail_title">图文详情</view>
     <!-- 内容 -->
     <view class="content">
-      <rich-text nodes="{{goodsIntroduce}}" />
+      <rich-text nodes="{{goodsObj.goodsIntroduce}}" />
     </view>
   </view>
   <!-- bottom nav Bar -->

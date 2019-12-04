@@ -16,8 +16,15 @@
 }
 .goods_detail_wrapper .preview .goods_info .price {
   padding: 15rpx 0 10rpx 10rpx;
+}
+.goods_detail_wrapper .preview .goods_info .price text:first-child {
   font-weight: bold;
   color: var(--themeColor);
+}
+.goods_detail_wrapper .preview .goods_info .price text:last-child {
+  margin-left: 20rpx;
+  font-size: 9px;
+  color: #ccc;
 }
 .goods_detail_wrapper .preview .goods_info .goods_other_attr {
   display: flex;
@@ -49,6 +56,7 @@
   padding: 10rpx 0;
 }
 .goods_detail_wrapper .preview .goods_info .goods_other_attr .collection text {
+  color: #ffd000;
   font-size: 15px;
 }
 .goods_detail_wrapper .preview .goods_info .goods_other_attr .collection view {

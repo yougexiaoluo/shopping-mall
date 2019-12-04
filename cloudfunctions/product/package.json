@@ -1,5 +1,5 @@
 {
-  "name": "product.js",
+  "name": "product",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "wx-server-sdk": "~1.5.5"
+    "wx-server-sdk": "^1.5.5"
   }
 }
