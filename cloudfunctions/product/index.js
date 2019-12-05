@@ -11,25 +11,40 @@ exports.main = async (event, context) => {
    *    a. 根据商品ID进行查找
    * 2. 如果存在，那么该商品数量 +1
    * 3. 不存在，那么该商品数量默认为 1
+   * 4. 加入购物车需要传递商品ID，以及属性
    */
-  console.log(event, context)
-  try {
-    let { product } = event
-    let { OPENID, APPID } = cloud.getWXContext()
-    let { data } = await lists.get()
-    console.log('data == ', data)
-    return {
-      msg: '添加商品成功',
-      success: true,
-      code: 1,
-      OPENID,
-      APPID
-    }
-  } catch (e) {
-    return {
-      msg: '添加商品失败',
-      success: false,
-      code: -1
-    }
+  let { product } = event
+  let { OPENID, APPID } = cloud.getWXContext()
+  let { data } = await lists.where({ goods_id: product.goods_id }).get() // 查找
+  changeData(product, data)
+  return {
+    msg: '添加成功',
+    success: true,
+    code: 1,
+    OPENID,
+    APPID
+  }
+}
+
+// 对数据库的具体操作
+let changeData = async (product, data) => {
+  // 添加
+  if (!data.length) {
+    product.num = 1
+    lists.add({ data: product })
+  } else { // 更新
+    let _ = db.command
+    lists
+      .doc(String(data[0]._id))
+      .update({
+        data: {
+          num: _.inc(1),
+          done: true
+        }
+      })
+      .then(res => {
+        console.log('更新成功 == ', res)
+        return res
+      })
   }
 }

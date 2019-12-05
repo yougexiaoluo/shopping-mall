@@ -69,7 +69,7 @@
       <text>购物车</text>
     </view>
     <!-- 加入购物车 -->
-    <view class="add_cart">加入购物车</view>
+    <view class="add_cart" bindtap="addProductToCart">加入购物车</view>
     <!-- 立即购买 -->
     <view class="immediately_purchase">立即购买</view>
   </view>

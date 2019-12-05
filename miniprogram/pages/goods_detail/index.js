@@ -1,5 +1,4 @@
 import { request } from "../../request/index.js"
-import { tips } from '../../utils/tips.js'
 const db = wx.cloud.database()
 Page({
 
@@ -17,28 +16,25 @@ Page({
   onLoad: function (options) {
     let { goodsId } = options
     this.getGoodsDetail(goodsId)
-    this.addProduct()
   },
 
   // 加入购物车
-  addProduct () {
+  addProductToCart () {
     wx.cloud.callFunction ({
       name: 'product',
       data: {
         product: this.goodsInfo
       }
     }).then(res => {
-      tips({
+      wx.showToast({
         title: '加入成功',
         icon: 'success'
       })
-      console.log('res == ', res)
     }).catch(err => {
-      tips({
+      wx.showToast({
         title: '加入失败',
-        imagePath: '../../images/Security close.png'
+        image: '../../images/Security close.png'
       })
-      console.log('err == ', err)
     })
   },
 
@@ -59,7 +55,7 @@ Page({
       data: { goods_id: goodsId }
     })
     this.goodsInfo = res
-    // console.log('res === ', res)
+    console.log('res === ', res)
     // 设置data
     this.setData({
       goodsObj: {
