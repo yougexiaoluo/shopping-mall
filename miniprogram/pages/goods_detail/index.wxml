@@ -32,9 +32,9 @@
         <!-- 商品名称 -->
         <view class="goods_name ellipsis">{{goodsObj.goodsName}}</view>
         <!-- 收藏 -->
-        <view class="collection">
+        <view class="collection" bindtap="handleCollection">
           <!-- icon -->
-          <text class="iconfont icon-shoucang"></text>
+          <text class="iconfont {{isCollection ? 'icon-shoucang1' : 'icon-shoucang'}}"></text>
           <view>收藏</view>
         </view>
       </view>

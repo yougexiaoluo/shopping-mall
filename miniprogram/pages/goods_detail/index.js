@@ -1,5 +1,6 @@
 import { request } from "../../request/index.js"
 const db = wx.cloud.database()
+const collect = db.collection('collections')
 Page({
 
   /**
@@ -7,6 +8,7 @@ Page({
    */
   data: {
     goodsObj: {}, // 显示的信息
+    isCollection: false
   },
   goodsInfo: {}, // 商品对象
 
@@ -18,9 +20,46 @@ Page({
     this.getGoodsDetail(goodsId)
   },
 
+  // 收藏/取消收藏
+  handleCollection() {
+    this.changeCollection()
+  },
+
+  changeCollection() {
+    wx.cloud.callFunction({
+      name: 'collections',
+      data: {
+        product: this.goodsInfo
+      }
+    }).then(res => {
+      let { isCollection } = this.data
+      this.setData({ isCollection: !isCollection })
+      this.goodsInfo.state = Number(!isCollection)
+      if (this.data.isCollection) {
+        wx.showToast({
+          title: '收藏成功',
+          icon: 'success',
+          mask: true
+        })
+      } else {
+        wx.showToast({
+          title: '取消收藏',
+          icon: 'success',
+          mask: true
+        })
+      }
+    }).catch(err => {
+      wx.showToast({
+        title: '操作失败',
+        image: '../../images/Security close.png',
+        mask: true
+      })
+    })
+  },
+
   // 加入购物车
-  addProductToCart () {
-    wx.cloud.callFunction ({
+  addProductToCart() {
+    wx.cloud.callFunction({
       name: 'product',
       data: {
         product: this.goodsInfo
@@ -28,18 +67,20 @@ Page({
     }).then(res => {
       wx.showToast({
         title: '加入成功',
-        icon: 'success'
+        icon: 'success',
+        mask: true
       })
     }).catch(err => {
       wx.showToast({
         title: '加入失败',
-        image: '../../images/Security close.png'
+        image: '../../images/Security close.png',
+        mask: true
       })
     })
   },
 
   // 商品全屏预览
-  previewImage (e) {
+  previewImage(e) {
     let { url } = e.currentTarget.dataset
     let urls = this.goodsInfo.pics.map(item => item.pics_mid_url)
     wx.previewImage({
@@ -49,13 +90,13 @@ Page({
   },
 
   // 获取商品详情
-  async getGoodsDetail (goodsId) {
+  async getGoodsDetail(goodsId) {
     let res = await request({
       url: '/goods/detail',
       data: { goods_id: goodsId }
     })
     this.goodsInfo = res
-    console.log('res === ', res)
+    this.getGoodsCollectionState()
     // 设置data
     this.setData({
       goodsObj: {
@@ -67,5 +108,15 @@ Page({
         goodsNumber: res.goods_number,
       }
     })
+  },
+
+  // 获取商品的收藏状态
+  async getGoodsCollectionState() {
+    let { data } = await collect.where({ goods_id: this.goodsInfo.goods_id }).get()
+    console.log(data)
+    if (!data.length) {
+      this.goodsInfo.state = 0
+      console.log('不存在')
+    }
   }
 })
