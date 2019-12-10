@@ -1,1 +1,23 @@
-/* pages/cart/index.wxss */
+.harvest_wrapper {
+  padding: 20rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+.harvest_wrapper .address_wrapper {
+  color: #333;
+  font-size: 28rpx;
+}
+.harvest_wrapper .address_wrapper .info {
+  display: flex;
+  justify-content: space-between;
+  line-height: 2;
+}
+.harvest_wrapper .address_wrapper .info .user_name {
+  flex: 1;
+}
+.harvest_wrapper .address_wrapper .address {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/*# sourceMappingURL=index.wxss.map */

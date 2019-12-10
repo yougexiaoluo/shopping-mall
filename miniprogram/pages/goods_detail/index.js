@@ -118,5 +118,10 @@ Page({
       this.goodsInfo.state = 0
       console.log('不存在')
     }
+  },
+  myCar() {
+    wx.switchTab({
+      url: '/pages/cart/index'
+    })
   }
 })

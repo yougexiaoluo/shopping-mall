@@ -1,0 +1,24 @@
+.harvest_wrapper {
+  padding: 20rpx;
+  border-bottom: 1rpx solid #ccc;
+  .address_wrapper {
+    color: #333;
+    font-size: 28rpx;
+    .info {
+      display: flex;
+      justify-content: space-between;
+      line-height: 2;
+      .user_name {
+        flex: 1;
+      }
+      .tel_number {
+        // flex: 1;
+      }
+    }
+    .address {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+}

@@ -64,7 +64,7 @@
       <button open-type="share"></button>
     </view>
     <!-- 购物车 -->
-    <view class="cart">
+    <view class="cart" bindtap="myCar">
       <text class="iconfont icon-cart"></text>
       <text>购物车</text>
     </view>

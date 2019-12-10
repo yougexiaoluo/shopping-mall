@@ -12,7 +12,7 @@
 	},
 	"appid": "wxbb1f3899844633e6",
 	"projectname": "shopping-mall-01",
-	"libVersion": "2.8.3",
+	"libVersion": "2.9.4",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
@@ -51,6 +51,12 @@
 					"name": "商品详情",
 					"pathName": "pages/goods_detail/index",
 					"query": "goodsId= 9832",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/cart/index",
 					"scene": null
 				}
 			]

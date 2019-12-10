@@ -1,2 +1,16 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<!-- 收获地址按钮 -->
+<view class="harvest_wrapper">
+  <view class="btn_wrapper" wx:if="{{!address.userName}}">
+    <button type="primary" bindtap="getAddress">添加收货地址</button>
+  </view>
+  <!-- address -->
+  <view class="address_wrapper" wx:else>
+    <view class="info">
+      <view class="user_name">收货人: {{address.userName}}</view>
+      <view class="tel_number">联系方式: {{address.telNumber}}</view>
+    </view>
+    <view class="address">地址: {{address.all}}</view>
+  </view>
+</view>
+<!-- 内容区域 -->
+<!-- 底部工具栏 -->
