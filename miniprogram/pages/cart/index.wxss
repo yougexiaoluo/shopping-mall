@@ -1,6 +1,12 @@
+.cart_wrapper {
+  height: 100%;
+  background: #f6f8f8;
+}
+
 .harvest_wrapper {
   padding: 20rpx;
   border-bottom: 1rpx solid #ccc;
+  background: #fff;
 }
 .harvest_wrapper .address_wrapper {
   color: #333;
@@ -18,6 +24,132 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+.goods_list_wrapper .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+  margin-bottom: 28rpx;
+  color: var(--color333);
+  font-size: 34rpx;
+  line-height: 2;
+}
+.goods_list_wrapper .title .manager {
+  font-size: 30rpx;
+  color: var(--themeColor);
+}
+.goods_list_wrapper .list_item {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  padding: 30rpx 40rpx 30rpx 20rpx;
+  width: 94%;
+  border-radius: 5px;
+  background: #fff;
+}
+.goods_list_wrapper .list_item checkbox-group {
+  flex: 1;
+  text-align: center;
+}
+.goods_list_wrapper .list_item .img_w {
+  flex: 2;
+  margin-right: 30rpx;
+}
+.goods_list_wrapper .list_item .img_w img {
+  width: 80%;
+}
+.goods_list_wrapper .list_item .info {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.goods_list_wrapper .list_item .info .goods_name {
+  font-size: 28rpx;
+  color: var(--color666);
+  margin-bottom: 25rpx;
+}
+.goods_list_wrapper .list_item .info .price_tool {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.goods_list_wrapper .list_item .info .price_tool text {
+  color: var(--themeColor);
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.goods_list_wrapper .list_item .info .price_tool .btn {
+  display: flex;
+  align-items: center;
+  border: 1rpx solid #ccc;
+  border-radius: 5rpx;
+}
+.goods_list_wrapper .list_item .info .price_tool .btn .reduce {
+  padding: 0 15rpx;
+  border-right: 1rpx solid #ccc;
+}
+.goods_list_wrapper .list_item .info .price_tool .btn .increase {
+  padding: 0 15rpx;
+  border-left: 1rpx solid #ccc;
+}
+.goods_list_wrapper .list_item .info .price_tool .btn .num {
+  padding: 0 20rpx;
+}
+
+.footer_tool {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  background: #fff;
+  border-top: 1rpx solid #ddd;
+  padding: 20rpx;
+}
+.footer_tool .checked_w {
+  display: flex;
+  align-items: center;
+}
+.footer_tool .total_price {
+  display: flex;
+  align-items: center;
+}
+.footer_tool .total_price .price {
+  color: var(--themeColor);
+}
+.footer_tool .total_price .btn {
+  padding: 20rpx 30rpx;
+  margin-left: 10px;
+  height: 100%;
+  color: #fff;
+  font-size: 26rpx;
+  background: var(--themeColor);
+  border-radius: 36rpx;
+  text-align: center;
+}
+.footer_tool .manager_btn {
+  display: flex;
+  align-items: center;
+}
+.footer_tool .manager_btn .entered_favorites,
+.footer_tool .manager_btn .delete {
+  padding: 12rpx 30rpx;
+  border-radius: 36rpx;
+  font-size: 22rpx;
+}
+.footer_tool .manager_btn .entered_favorites {
+  border: 1rpx solid orange;
+  color: orange;
+  margin-right: 10px;
+}
+.footer_tool .manager_btn .delete {
+  border: 1rpx solid var(--themeColor);
+  color: var(--themeColor);
 }
 
 /*# sourceMappingURL=index.wxss.map */

@@ -6,8 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    address: {}
+    address: {},
+    radioIsChecked: false, // 管理购物车商品选中按钮 
   },
+
   onShow: function () {
     let address = wx.getStorageSync('address') || {}
     this.setData({ address })

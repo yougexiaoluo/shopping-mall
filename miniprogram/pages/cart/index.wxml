@@ -1,16 +1,64 @@
-<!-- 收获地址按钮 -->
-<view class="harvest_wrapper">
-  <view class="btn_wrapper" wx:if="{{!address.userName}}">
-    <button type="primary" bindtap="getAddress">添加收货地址</button>
-  </view>
-  <!-- address -->
-  <view class="address_wrapper" wx:else>
-    <view class="info">
-      <view class="user_name">收货人: {{address.userName}}</view>
-      <view class="tel_number">联系方式: {{address.telNumber}}</view>
+<view class="cart_wrapper">
+  <!-- 收获地址按钮 -->
+  <view class="harvest_wrapper">
+    <view class="btn_wrapper" wx:if="{{!address.userName}}">
+      <button type="primary" bindtap="getAddress">添加收货地址</button>
     </view>
-    <view class="address">地址: {{address.all}}</view>
+    <!-- address -->
+    <view class="address_wrapper" wx:else>
+      <view class="info">
+        <view class="user_name">收货人: {{address.userName}}</view>
+        <view class="tel_number">联系方式: {{address.telNumber}}</view>
+      </view>
+      <view class="address">地址: {{address.all}}</view>
+    </view>
+  </view>
+  <!-- 内容区域 -->
+  <view class="goods_list_wrapper">
+    <view class="title">
+      <text>购物车</text>
+      <text class="manager">管理</text>
+    </view>
+    <!-- <block></block> -->
+    <view class="list_item">
+      <checkbox-group>
+        <checkbox />
+      </checkbox-group>
+      <view class="img_w">
+        <image mode="widthFix" src="https://image.suning.cn/uimg/sop/commodity/774197311141788947982000_x.jpg" />
+      </view>
+      <view class="info">
+        <view class="goods_name ellipsis">TCL 65C5 65英寸 4K超高清 哈曼卡顿音响 64位34核 纤薄金属 人工智能 曲面电视</view>
+        <view class="price_tool">
+          <text>￥1388</text>
+          <view class="btn">
+            <view class="reduce">-</view>
+            <view class="num">1</view>
+            <view class="increase">+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 底部工具栏 -->
+  <view class="footer_tool">
+    <view class="checked_w">
+      <checkbox-group>
+        <checkbox />
+      </checkbox-group>
+      <text>全选</text>
+    </view>
+    <!-- <view class="total_price">
+      <view>
+        合计：
+        <text class="price">￥13800</text>
+      </view>
+      <view class="btn">结算(0)</view>
+    </view> -->
+    <!-- 管理商品按钮 -->
+    <view class="manager_btn">
+      <view class="entered_favorites">移入收藏夹</view>
+      <view class="delete">删除</view>
+    </view>
   </view>
 </view>
-<!-- 内容区域 -->
-<!-- 底部工具栏 -->
