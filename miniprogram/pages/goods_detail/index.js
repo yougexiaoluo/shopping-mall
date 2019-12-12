@@ -32,10 +32,10 @@ Page({
         product: this.goodsInfo
       }
     }).then(res => {
-      let { isCollection } = this.data
-      this.setData({ isCollection: !isCollection })
-      this.goodsInfo.state = Number(!isCollection)
-      if (this.data.isCollection) {
+      let { data } = res.result
+      this.setData({ isCollection: !data[0].state })
+      this.goodsInfo.state = !data[0].state
+      if (!data[0].state) {
         wx.showToast({
           title: '收藏成功',
           icon: 'success',
@@ -59,6 +59,7 @@ Page({
 
   // 加入购物车
   addProductToCart() {
+    this.goodsInfo.checked = false  // 商品默认不选中状态
     wx.cloud.callFunction({
       name: 'product',
       data: {
@@ -113,13 +114,16 @@ Page({
   // 获取商品的收藏状态
   async getGoodsCollectionState() {
     let { data } = await collect.where({ goods_id: this.goodsInfo.goods_id }).get()
-    console.log(data)
     if (!data.length) {
       this.goodsInfo.state = 0
-      console.log('不存在')
+    } else {
+      this.goodsInfo.state = data[0].state
+      this.setData({ isCollection: data[0].state })
     }
   },
-  myCar() {
+  
+  // 我的购物车
+  myCart() {
     wx.switchTab({
       url: '/pages/cart/index'
     })

@@ -48,17 +48,17 @@
       </checkbox-group>
       <text>全选</text>
     </view>
-    <!-- <view class="total_price">
+    <view class="total_price">
       <view>
         合计：
         <text class="price">￥13800</text>
       </view>
       <view class="btn">结算(0)</view>
-    </view> -->
+    </view>
     <!-- 管理商品按钮 -->
-    <view class="manager_btn">
+    <!-- <view class="manager_btn">
       <view class="entered_favorites">移入收藏夹</view>
       <view class="delete">删除</view>
-    </view>
+    </view> -->
   </view>
 </view>

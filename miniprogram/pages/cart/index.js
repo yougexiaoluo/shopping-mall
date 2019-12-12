@@ -1,7 +1,8 @@
 import { getSetting, openSetting, chooseAddress } from '../../utils/getSettings'
 import regeneratorRuntime from '../../lib/runtime/runtime'
+const db = wx.cloud.database()
+const lists = db.collection('lists')
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -18,7 +19,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.getCart()
   },
 
   // 获取小程序内置的收货地址
@@ -34,6 +35,11 @@ Page({
     // 将地址信息缓存到本地存储
     wx.setStorageSync('address', address)
     this.setData({ address })
-    console.log(address)
+  },
+
+  // 获取购物车数据
+  async getCart() {
+    let cart = await lists.get()
+    console.log(cart)
   }
 })

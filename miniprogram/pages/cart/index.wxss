@@ -43,7 +43,7 @@
 .goods_list_wrapper .list_item {
   display: flex;
   align-items: center;
-  margin: 0 auto;
+  margin: 0 auto 20rpx;
   padding: 30rpx 40rpx 30rpx 20rpx;
   width: 94%;
   border-radius: 5px;

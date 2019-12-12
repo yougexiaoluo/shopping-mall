@@ -9,17 +9,8 @@ const collect = db.collection('collections')
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   let { product } = event
-  searchCollections(product)
-  return {
-    msg: '操作成功',
-    code: 1,
-    success: true
-  }
-}
-
-// 操作数据库中的收藏列表
-let searchCollections = async (product) => {
   let { data } = await collect.where({ goods_id: product.goods_id }).get()
+  console.log(data)
   if (!data.length) {
     product.state = 1
     collect.add({ data: product })
@@ -29,9 +20,15 @@ let searchCollections = async (product) => {
       .doc(data[0]._id)
       .update({
         data: {
-          state: Number(!product.state),
+          state: Number(!data[0].state),
           done: true
         }
       })
+  }
+  return {
+    data,
+    msg: '操作成功',
+    code: 1,
+    success: true
   }
 }
