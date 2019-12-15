@@ -39,3 +39,22 @@ export const chooseAddress = () => {
     })
   })
 }
+
+// promise 形式的 showToase
+export const showToast = (options) => {
+  return new Promise((resolve, reject) => {
+    wx.showToast({
+      title: options.title || '操作成功',
+      icon: options.icon || 'success',
+      mask: options.mask || true,
+      image: options.image || '',
+      daration: options.daration || 1500,
+      success(res) {
+        resolve(res)
+      },
+      faild(err) {
+        reject(err)
+      }
+    })
+  })
+}

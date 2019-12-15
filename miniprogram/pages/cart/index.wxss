@@ -1,6 +1,6 @@
 .cart_wrapper {
-  height: 100%;
   background: #f6f8f8;
+  min-height: 100%;
 }
 
 .harvest_wrapper {
@@ -26,6 +26,9 @@
   white-space: nowrap;
 }
 
+.goods_list_wrapper {
+  padding-bottom: 65px;
+}
 .goods_list_wrapper .title {
   display: flex;
   align-items: center;
@@ -107,6 +110,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100vw;
+  height: 65px;
   background: #fff;
   border-top: 1rpx solid #ddd;
   padding: 20rpx;

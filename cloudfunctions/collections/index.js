@@ -9,22 +9,31 @@ const collect = db.collection('collections')
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   let { product } = event
-  let { data } = await collect.where({ goods_id: product.goods_id }).get()
+  // 获取传递过来的商品对象
+  var { data } = await collect.where({ goods_id: product.goods_id }).get()
   console.log(data)
+  // 不存在该商品，添加到数据库，并改变收藏状态
   if (!data.length) {
     product.state = 1
-    collect.add({ data: product })
+    let { _id } = await collect.add({ data: product })
+    var { data } = await collect.where({ _id }).get()
   } else {
+    // 存在该商品时，改变商品收藏状态
     let _ = db.command
-    collect
-      .doc(data[0]._id)
-      .update({
-        data: {
-          state: Number(!data[0].state),
-          done: true
-        }
-      })
+    let { stats } = await collect
+    .doc(data[0]._id)
+    .update({
+      data: {
+        state: Number(!data[0].state),
+        done: true
+      }
+    })
+    console.log(stats)
+    if (stats.updated >= 1) {
+      var { data } = await collect.where({ goods_id: product.goods_id }).get()
+    }
   }
+  
   return {
     data,
     msg: '操作成功',

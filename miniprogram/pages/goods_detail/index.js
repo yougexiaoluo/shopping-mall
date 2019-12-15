@@ -1,4 +1,6 @@
 import { request } from "../../request/index.js"
+import { showToast } from "../../utils/getSettings.js"
+
 const db = wx.cloud.database()
 const collect = db.collection('collections')
 Page({
@@ -33,26 +35,18 @@ Page({
       }
     }).then(res => {
       let { data } = res.result
-      this.setData({ isCollection: !data[0].state })
-      this.goodsInfo.state = !data[0].state
-      if (!data[0].state) {
-        wx.showToast({
-          title: '收藏成功',
-          icon: 'success',
-          mask: true
-        })
+      if (data[0].state) {
+        showToast({title: '收藏成功'})
       } else {
-        wx.showToast({
-          title: '取消收藏',
-          icon: 'success',
-          mask: true
-        })
+        showToast({title: '取消收藏'})
       }
+      this.setData({ isCollection: data[0].state })
+      this.goodsInfo.state = data[0].state
     }).catch(err => {
-      wx.showToast({
+      console.log(err)
+      showToast({
         title: '操作失败',
-        image: '../../images/Security close.png',
-        mask: true
+        image: '../../images/security_close.png'
       })
     })
   },
@@ -66,16 +60,11 @@ Page({
         product: this.goodsInfo
       }
     }).then(res => {
-      wx.showToast({
-        title: '加入成功',
-        icon: 'success',
-        mask: true
-      })
+      showToast({title: '加入成功'})
     }).catch(err => {
-      wx.showToast({
+      showToast({
         title: '加入失败',
-        image: '../../images/Security close.png',
-        mask: true
+        image: '../../images/Security close.png'
       })
     })
   },

@@ -19,41 +19,42 @@
       <text>购物车</text>
       <text class="manager">管理</text>
     </view>
-    <!-- <block></block> -->
-    <view class="list_item">
-      <checkbox-group>
-        <checkbox />
-      </checkbox-group>
-      <view class="img_w">
-        <image mode="widthFix" src="https://image.suning.cn/uimg/sop/commodity/774197311141788947982000_x.jpg" />
-      </view>
-      <view class="info">
-        <view class="goods_name ellipsis">TCL 65C5 65英寸 4K超高清 哈曼卡顿音响 64位34核 纤薄金属 人工智能 曲面电视</view>
-        <view class="price_tool">
-          <text>￥1388</text>
-          <view class="btn">
-            <view class="reduce">-</view>
-            <view class="num">1</view>
-            <view class="increase">+</view>
+    <block wx:for="{{cart}}" wx:key="goods_id">
+      <view class="list_item">
+        <checkbox-group bindchange="handleCheckbox" data-id="{{item.goods_id}}">
+          <checkbox checked="{{item.checked}}"/>
+        </checkbox-group>
+        <view class="img_w">
+          <image mode="widthFix" src="{{item.goods_small_logo}}" />
+        </view>
+        <view class="info">
+          <view class="goods_name ellipsis">{{item.goods_name}}</view>
+          <view class="price_tool">
+            <text>￥{{item.goods_price}}</text>
+            <view class="btn">
+              <view class="reduce" bindtap="handleItemEdit" data-id="{{item.goods_id}}" data-operation="{{-1}}">-</view>
+              <view class="num">{{item.num}}</view>
+              <view class="increase" bindtap="handleItemEdit" data-id="{{item.goods_id}}" data-operation="{{1}}">+</view>
+            </view>
           </view>
         </view>
       </view>
-    </view>
+    </block>
   </view>
   <!-- 底部工具栏 -->
   <view class="footer_tool">
     <view class="checked_w">
-      <checkbox-group>
-        <checkbox />
+      <checkbox-group bindchange="handleAllSelected">
+        <checkbox checked="{{allSelected}}"/>
       </checkbox-group>
       <text>全选</text>
     </view>
     <view class="total_price">
       <view>
         合计：
-        <text class="price">￥13800</text>
+        <text class="price">￥{{totalPrice}}</text>
       </view>
-      <view class="btn">结算(0)</view>
+      <view class="btn" bindtap="settlement">结算({{totalNum}})</view>
     </view>
     <!-- 管理商品按钮 -->
     <!-- <view class="manager_btn">

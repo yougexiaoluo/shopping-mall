@@ -27,24 +27,20 @@ exports.main = async (event, context) => {
 }
 
 // 对数据库的具体操作
-let changeData = async (product, data) => {
+let changeData = (product, data) => {
+  console.log(data)
   // 添加
   if (!data.length) {
     product.num = 1
     lists.add({ data: product })
+    console.log('不存在')
   } else { // 更新
     let _ = db.command
     lists
-      .doc(String(data[0]._id))
+      .doc(data[0]._id)
       .update({
-        data: {
-          num: _.inc(1),
-          done: true
-        }
+        data: { num: _.inc(1) }
       })
-      .then(res => {
-        console.log('更新成功 == ', res)
-        return res
-      })
+      console.log('存在')
   }
 }
