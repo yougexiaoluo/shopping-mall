@@ -18,8 +18,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let { goodsId } = options
-    this.getGoodsDetail(goodsId)
+    let { goods_id } = options
+    this.getGoodsDetail(goods_id)
   },
 
   // 收藏/取消收藏
@@ -80,10 +80,10 @@ Page({
   },
 
   // 获取商品详情
-  async getGoodsDetail(goodsId) {
+  async getGoodsDetail(goods_id) {
     let res = await request({
       url: '/goods/detail',
-      data: { goods_id: goodsId }
+      data: { goods_id }
     })
     this.goodsInfo = res
     this.getGoodsCollectionState()

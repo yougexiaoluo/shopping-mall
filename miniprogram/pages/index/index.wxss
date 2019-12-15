@@ -13,11 +13,11 @@
 .page_container .index_nav {
   display: flex;
 }
-.page_container .index_nav navigator {
+.page_container .index_nav .nav_item {
   flex: 1;
   padding: 20rpx;
 }
-.page_container .index_nav navigator image {
+.page_container .index_nav .nav_item image {
   width: 100%;
 }
 .page_container .index_floor {

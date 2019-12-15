@@ -33,7 +33,6 @@ let changeData = (product, data) => {
   if (!data.length) {
     product.num = 1
     lists.add({ data: product })
-    console.log('不存在')
   } else { // 更新
     let _ = db.command
     lists
@@ -41,6 +40,5 @@ let changeData = (product, data) => {
       .update({
         data: { num: _.inc(1) }
       })
-      console.log('存在')
   }
 }
