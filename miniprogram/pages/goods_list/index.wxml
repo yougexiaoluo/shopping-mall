@@ -25,7 +25,8 @@
   </Tabs>
 
   <!-- 没有数据时显示 -->
-  <!-- <view class="no_data level_vertical_center" wx:if="{{!goodsList.length}}">
-    <image mode="widthFix" src="../../images/NO.png" />
-  </view> -->
+  <view class="no_data level_vertical_center" wx:if="{{!goodsList.length}}">
+    <!-- <image mode="widthFix" src="../../images/NO.png" /> -->
+    <text style="color: #ccc;">暂无商品数据</text>
+  </view>
 </view>  

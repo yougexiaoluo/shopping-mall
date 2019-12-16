@@ -13,6 +13,7 @@ Page({
     allSelected: false, // 全选
     totalPrice: 0, // 商品总价格
     totalNum: 0, // 商品总数量
+    cartNumber: 0, // 购物车商品数量
   },
 
   onShow: function () {
@@ -44,7 +45,11 @@ Page({
   // 获取购物车数据
   async getCart() {
     let { data } = await lists.get()
-    this.setData({cart: data})
+    let cartNumber = 0
+    data.length && data.map(item => {
+      cartNumber += item.num
+    })
+    this.setData({cart: data, cartNumber})
   },
 
   // 选中单个商品

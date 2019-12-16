@@ -16,13 +16,13 @@
   <!-- 内容区域 -->
   <view class="goods_list_wrapper">
     <view class="title">
-      <text>购物车</text>
+      <text>购物车({{cartNumber}})</text>
       <text class="manager">管理</text>
     </view>
     <block wx:for="{{cart}}" wx:key="goods_id">
       <view class="list_item">
         <checkbox-group bindchange="handleCheckbox" data-id="{{item.goods_id}}">
-          <checkbox checked="{{item.checked}}"/>
+          <checkbox checked="{{item.checked}}" />
         </checkbox-group>
         <view class="img_w">
           <image mode="widthFix" src="{{item.goods_small_logo}}" />
@@ -32,9 +32,13 @@
           <view class="price_tool">
             <text>￥{{item.goods_price}}</text>
             <view class="btn">
-              <view class="reduce" bindtap="handleItemEdit" data-id="{{item.goods_id}}" data-operation="{{-1}}">-</view>
+              <view class="reduce" bindtap="handleItemEdit" data-id="{{item.goods_id}}" data-operation="{{-1}}">
+                -
+              </view>
               <view class="num">{{item.num}}</view>
-              <view class="increase" bindtap="handleItemEdit" data-id="{{item.goods_id}}" data-operation="{{1}}">+</view>
+              <view class="increase" bindtap="handleItemEdit" data-id="{{item.goods_id}}" data-operation="{{1}}">
+                +
+              </view>
             </view>
           </view>
         </view>
@@ -45,7 +49,7 @@
   <view class="footer_tool">
     <view class="checked_w">
       <checkbox-group bindchange="handleAllSelected">
-        <checkbox checked="{{allSelected}}"/>
+        <checkbox checked="{{allSelected}}" />
       </checkbox-group>
       <text>全选</text>
     </view>
@@ -61,5 +65,10 @@
       <view class="entered_favorites">移入收藏夹</view>
       <view class="delete">删除</view>
     </view> -->
+  </view>
+  <!-- 购物车没有商品时显示 -->
+  <view class="no_data level_vertical_center" wx:if="{{cart.length === 0}}">
+    <!-- <text style="color: #ccc;">购物车空空如也，赶紧去添加商品吧！</text> -->
+    <image mode="widthFix" src="http://img1.imgtn.bdimg.com/it/u=1715065314,3297062123&fm=26&gp=0.jpg" />
   </view>
 </view>

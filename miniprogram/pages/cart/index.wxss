@@ -156,4 +156,8 @@
   color: var(--themeColor);
 }
 
+.no_data image {
+  width: 80%;
+}
+
 /*# sourceMappingURL=index.wxss.map */

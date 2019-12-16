@@ -43,7 +43,6 @@ Page({
       this.setData({ isCollection: data[0].state })
       this.goodsInfo.state = data[0].state
     }).catch(err => {
-      console.log(err)
       showToast({
         title: '操作失败',
         image: '../../images/security_close.png'

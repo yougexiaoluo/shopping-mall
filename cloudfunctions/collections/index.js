@@ -11,7 +11,6 @@ exports.main = async (event, context) => {
   let { product } = event
   // 获取传递过来的商品对象
   var { data } = await collect.where({ goods_id: product.goods_id }).get()
-  console.log(data)
   // 不存在该商品，添加到数据库，并改变收藏状态
   if (!data.length) {
     product.state = 1
@@ -28,7 +27,6 @@ exports.main = async (event, context) => {
         done: true
       }
     })
-    console.log(stats)
     if (stats.updated >= 1) {
       var { data } = await collect.where({ goods_id: product.goods_id }).get()
     }

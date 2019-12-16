@@ -28,7 +28,6 @@ exports.main = async (event, context) => {
 
 // 对数据库的具体操作
 let changeData = (product, data) => {
-  console.log(data)
   // 添加
   if (!data.length) {
     product.num = 1
