@@ -4,7 +4,7 @@
     <view wx:if="{{tabs[0].isActive}}">
       <navigator class="comprehensive_item"
         wx:for="{{goodsList}}"
-        wx:key="goods_id"
+        wx:key="index"
         url="/pages/goods_detail/index?goods_id={{item.goods_id}}"
       >
         <!-- 左侧商品图片 -->

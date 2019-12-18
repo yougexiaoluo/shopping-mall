@@ -19,12 +19,13 @@ Page({
   onShow: function () {
     let address = wx.getStorageSync('address') || {}
     this.setData({ address })
+    this.getCart()
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getCart()
+    
   },
 
   // 获取小程序内置的收货地址
@@ -90,11 +91,14 @@ Page({
 
   // 结算
   settlement() {
-    let { address, cart } = this.data
+    let { address, cart, totalNum } = this.data
     if (JSON.stringify(address) == '{}') {
       return showToast({title: '请选择收货地址', icon: 'none'})
     }
-    wx.navigateTo({url: '/pages/pay/index'})
+    if (totalNum == 0) {
+      return showToast({title: '请选择需要购买的商品', icon: 'none'})
+    }
+    wx.navigateTo({url: '/pages/pay/index'}) // 跳转到结算页面
   },
 
   // 计算总价钱、总数量、是否全选

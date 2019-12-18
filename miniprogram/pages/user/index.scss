@@ -1,0 +1,133 @@
+.personal_wrapper {
+  background: var(--BG);
+
+  .avatar_wrapper {
+    height: 40vh;
+    background: var(--themeColor);
+    position: relative;
+    overflow: hidden;
+
+    .bg {
+      height: 40vh;
+      filter: blur(20rpx);
+      transform: scale(1.1);
+    }
+
+    .user_avatar {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+
+      image {
+        width: 150rpx;
+        border-radius: 50%;
+      }
+
+      .user_name {
+        font-size: 30rpx;
+        color: #fff;
+        margin-top: 50rpx;
+      }
+    }
+
+    .authorization {
+      background: transparent;
+      border: 1rpx solid #ddd;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ddd;
+
+      &.hover {
+        background: rgba(255, 255, 255, .2);
+      }
+    }
+  }
+
+  .order_info {
+    position: relative;
+    top: -30px;
+    height: 60vh;
+    padding: 10px;
+    font-size: 22rpx;
+
+    .history_wrapper {
+      display: flex;
+      justify-content: space-between;
+      padding: 10rpx;
+      background: #fff;
+      text-align: center;
+      margin-bottom: 10px;
+
+      &>view {
+        flex: 1;
+
+        text {
+          margin-bottom: 2px;
+          color: var(--themeColor);
+          font-size: 28rpx;
+        }
+      }
+    }
+
+    .order_related {
+      font-size: 22rpx;
+
+      .title {
+        padding: 10px;
+        margin-bottom: 2px;
+        background: #fff;
+      }
+
+      .order {
+        display: flex;
+        align-items: center;
+        background: #fff;
+        margin-bottom: 10px;
+
+        &>view {
+          flex: 1;
+          padding: 16rpx;
+          text-align: center;
+
+          text {
+            color: var(--themeColor);
+            font-size: 18px;
+            margin-bottom: 4px;
+          }
+        }
+      }
+    }
+
+    .address_management {
+      background: #fff;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .customer_service {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      background: #fff;
+      margin-bottom: 6rpx;
+
+      text {}
+    }
+
+    .feedback {
+      background: #fff;
+      margin-bottom: 6rpx;
+      padding: 10px;
+    }
+
+    .about {
+      background: #fff;
+      margin-bottom: 6rpx;
+      padding: 10px;
+    }
+  }
+}

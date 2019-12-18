@@ -1,2 +1,70 @@
-<!--pages/user/index.wxml-->
-<text>pages/user/index.wxml</text>
+<view class="personal_wrapper">
+  <!-- 用户头像 -->
+  <view class="avatar_wrapper">
+    <block wx:if="{{userInfo.nickName}}">
+      <image class="bg" mode="widthFix" src="{{userInfo.avatarUrl}}" />
+      <view class="user_avatar">
+        <image class="avatar" mode="widthFix" src="{{userInfo.avatarUrl}}" />
+        <view class="user_name">{{userInfo.nickName}}</view>
+      </view>
+    </block>
+    <block wx:else>
+      <button class="authorization" open-type="getUserInfo" hover-class="hover" bindgetuserinfo="getUserInfo">登录授权</button>
+    </block>
+  </view>
+  <!-- 其他信息 -->
+  <view class="order_info">
+    <!-- 历史相关 -->
+    <view class="history_wrapper">
+      <view class="collection_shop">
+        <text>0</text>
+        <view>收藏的店铺</view>
+      </view>
+      <view class="collections">
+        <text>0</text>
+        <view>收藏的商品</view>
+      </view>
+      <view class="product_of_concern">
+        <text>0</text>
+        <view>关注的商品</view>
+      </view>
+      <view class="my_tracks">
+        <text>0</text>
+        <view>我的足迹</view>
+      </view>
+    </view>
+    <!-- 订单相关 -->
+    <view class="order_related">
+      <view class="title">我的订单</view>
+      <view class="order">
+        <view class="all_order">
+          <text class="iconfont icon-ding_dan"></text>
+          <view>全部订单</view>
+        </view>
+        <view class="pending_payment">
+          <text class="iconfont icon-fukuantongzhi"></text>
+          <view>待付款</view>
+        </view>
+        <view class="received">
+          <text class="iconfont icon-receipt-address"></text>
+          <view>待收货</view>
+        </view>
+        <view class="refund">
+          <text class="iconfont icon-tuihuotuikuan_dianpu"></text>
+          <view>退款/退货</view>
+        </view>
+      </view>
+    </view>
+    <!-- 地址管理 -->
+    <view class="address_management">地址管理</view>
+    <!-- 联系客服 -->
+    <view class="customer_service">
+      <text>联系客服</text>
+      <text>400-618-4000</text>
+    </view>
+    <!-- 意见反馈 -->
+    <view class="feedback">意见反馈</view>
+    <!-- 关于我们 -->
+    <view class="about">关于我们</view>
+  </view>
+</view>
